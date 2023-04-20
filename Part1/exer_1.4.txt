@@ -27,3 +27,21 @@ Searching..
 <hr><center>nginx/1.20.1</center>
 </body>
 </html>
+
+# Other solution(s)
+$ docker run -d --name add_dependencies -it ubuntu sh -c 'apt update && apt -y upgrade; apt -y install curl; while true; do echo "Input website:"; read website; echo "Searching..>"; sleep 1; curl http://$website; done'
+d33237c12c3caf52bcc4614353f5553c08f55b21cea9f94406442de59838d2c5
+
+$ docker attach add_dependencies
+...
+Input website:
+helsinki.fi
+Searching..>
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.20.1</center>
+</body>
+</html>
+
