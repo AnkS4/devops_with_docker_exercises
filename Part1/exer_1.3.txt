@@ -1,0 +1,26 @@
+# Image devopsdockeruh/simple-web-service:ubuntu will start a container that outputs logs into a file. Go inside the container and use tail -f ./text.log to follow the logs. Every 10 seconds the clock will send you a "secret message".
+$ docker run -d -it devopsdockeruh/simple-web-service:ubuntu
+Unable to find image 'devopsdockeruh/simple-web-service:ubuntu' locally
+ubuntu: Pulling from devopsdockeruh/simple-web-service
+5d3b2c2d21bb: Pull complete 
+3fc2062ea667: Pull complete 
+75adf526d75b: Pull complete 
+965d4bbb586a: Pull complete 
+4f4fb700ef54: Pull complete 
+Digest: sha256:d44e1dce398732e18c7c2bad9416a072f719af33498302b02929d4c112e88d2a
+Status: Downloaded newer image for devopsdockeruh/simple-web-service:ubuntu
+40c4a3cd47a6486829015b4fdcb889b72f8eabb4d6ba28b6bf714676acddcb00
+
+$ docker ps
+CONTAINER ID   IMAGE                                      COMMAND                  CREATED          STATUS          PORTS     NAMES
+40c4a3cd47a6   devopsdockeruh/simple-web-service:ubuntu   "/usr/src/app/server"    7 seconds ago    Up 6 seconds              tender_murdock
+
+# Submit the secret message and command(s) given as your answer.
+$  docker exec -it tender_murdock bash
+root@40c4a3cd47a6:/usr/src/app# tail -f ./text.log
+2023-04-20 06:42:30 +0000 UTC
+2023-04-20 06:42:32 +0000 UTC
+2023-04-20 06:42:34 +0000 UTC
+2023-04-20 06:42:36 +0000 UTC
+2023-04-20 06:42:38 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'

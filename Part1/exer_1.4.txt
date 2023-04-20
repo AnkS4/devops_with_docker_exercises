@@ -1,0 +1,29 @@
+# Start a Ubuntu image with the process sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
+# You will notice that a few things required for proper execution are missing. Be sure to remind yourself which flags to use so that the container actually waits for input.
+# Return the command you used to start process and the command(s) you used to fix the ensuing problems.
+
+$ docker run -d --name add_dependencies -it ubuntu sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
+ce355b1efd2e58fffa0414165c7c44f841309eedd65a4b44eb6f6fec0ae18486
+
+$ docker logs -f add_dependencies 
+Input website:
+Searching..
+sh: 1: curl: not found
+^C
+
+$ docker exec -it add_dependencies bash
+root@ce355b1efd2e:/# apt update && apt -y upgrade
+root@ce355b1efd2e:/# apt -y install curl
+root@ce355b1efd2e:/# exit
+exit
+
+$ docker attach add_dependencies
+helsinki.fi
+Searching..
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.20.1</center>
+</body>
+</html>
