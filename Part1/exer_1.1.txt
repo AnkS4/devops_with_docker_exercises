@@ -1,5 +1,38 @@
 # Start 3 containers from an image that does not automatically exit (such as nginx) in detached mode
+$ docker container run -d nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+26c5c85e47da: Pull complete 
+4f3256bdf66b: Pull complete 
+2019c71d5655: Pull complete 
+8c767bdbc9ae: Pull complete 
+78e14bb05fd3: Pull complete 
+75576236abf5: Pull complete 
+Digest: sha256:63b44e8ddb83d5dd8020327c1f40436e37a6fffd3ef2498a6204df23be6e7e94
+Status: Downloaded newer image for nginx:latest
+2234768a542fa41c8491d45838e9c26cf3fb476b3ead27fda167434dacb540b3
+
+$ docker container run -d nginx
+1ce945b8ae6be77d99a28c69a079068dddec3c0094ce0bdb70b2349977d585ff
+
+$ docker container run -d nginx
+5143b820a226229a4b604eb6bd44946fa43229889babe434df7687d905d4d15a
+
+$ docker container ls 
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS     NAMES
+5143b820a226   nginx     "/docker-entrypoint.…"   19 seconds ago   Up 18 seconds   80/tcp    jolly_hodgkin
+1ce945b8ae6b   nginx     "/docker-entrypoint.…"   20 seconds ago   Up 19 seconds   80/tcp    kind_einstein
+2234768a542f   nginx     "/docker-entrypoint.…"   23 seconds ago   Up 22 seconds   80/tcp    strange_grothendieck
 
 # Stop two of the containers and leave one container running
+$ docker container stop jolly_hodgkin
+jolly_hodgkin
+$ docker container stop kind_einstein
+kind_einstein
 
 # Submit the output for docker ps -a which shows 2 stopped containers and one running
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                      PORTS     NAMES
+5143b820a226   nginx     "/docker-entrypoint.…"   About a minute ago   Exited (0) 22 seconds ago             jolly_hodgkin
+1ce945b8ae6b   nginx     "/docker-entrypoint.…"   About a minute ago   Exited (0) 8 seconds ago              kind_einstein
+2234768a542f   nginx     "/docker-entrypoint.…"   About a minute ago   Up About a minute           80/tcp    strange_grothendieck

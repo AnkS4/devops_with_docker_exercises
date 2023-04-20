@@ -1,5 +1,37 @@
 # We have containers and an image that are no longer in use and are taking up space. Running docker ps -as and docker images will confirm this
+$ docker ps -as
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES                  SIZE
+5143b820a226   nginx     "/docker-entrypoint.…"   7 minutes ago   Exited (0) 7 minutes ago             jolly_hodgkin          1.09kB (virtual 142MB)
+1ce945b8ae6b   nginx     "/docker-entrypoint.…"   7 minutes ago   Exited (0) 6 minutes ago             kind_einstein          1.09kB (virtual 142MB)
+2234768a542f   nginx     "/docker-entrypoint.…"   7 minutes ago   Up 7 minutes               80/tcp    strange_grothendieck   1.09kB (virtual 142MB)
+
+$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED      SIZE
+nginx        latest    6efc10a0510f   7 days ago   142MB
 
 # Clean the Docker daemon by removing all images and containers
+$ docker container stop strange_grothendieck
+strange_grothendieck
+
+$ docker container rm jolly_hodgkin kind_einstein strange_grothendieck
+jolly_hodgkin
+kind_einstein
+strange_grothendieck
+
+$ docker image rm nginx
+Untagged: nginx:latest
+Untagged: nginx@sha256:63b44e8ddb83d5dd8020327c1f40436e37a6fffd3ef2498a6204df23be6e7e94
+Deleted: sha256:6efc10a0510f143a90b69dc564a914574973223e88418d65c1f8809e08dc0a1f
+Deleted: sha256:a489ce38666d5aff5d73930d115381b154a503b48c5534357d5183160f5b9bfa
+Deleted: sha256:ce2a611250a8bb55b73959de5865489d566bf48e1342c74b46b107e9a224370e
+Deleted: sha256:fa6c51798227fd451cc3ff628c46c1b62c0d1d08e43374be7000c78ad910c0c0
+Deleted: sha256:c426467d564c8684df87356eb045dc50d8b5af9521e9775c1b6bb941135680de
+Deleted: sha256:c6deada06ccd386201e5b95c38e19297cd3eeb5264d6413d9cc7441020816401
+Deleted: sha256:ed7b0ef3bf5bbec74379c3ae3d5339e666a314223e863c70644f7522a7527461
 
 # Submit the output for docker ps -a and docker images
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+$ docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
