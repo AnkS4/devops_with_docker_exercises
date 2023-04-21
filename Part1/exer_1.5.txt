@@ -1,0 +1,31 @@
+# In the Exercise 1.3 we used devopsdockeruh/simple-web-service:ubuntu.
+# Here is the same application but instead of Ubuntu is using Alpine Linux: devopsdockeruh/simple-web-service:alpine.
+# Pull both images and compare the image sizes. Go inside the alpine container and make sure the secret message functionality is the same. Alpine version doesn't have bash but it has sh.
+$ docker pull devopsdockeruh/simple-web-service:ubuntu
+ubuntu: Pulling from devopsdockeruh/simple-web-service
+Digest: sha256:d44e1dce398732e18c7c2bad9416a072f719af33498302b02929d4c112e88d2a
+Status: Image is up to date for devopsdockeruh/simple-web-service:ubuntu
+docker.io/devopsdockeruh/simple-web-service:ubuntu
+
+$ docker pull devopsdockeruh/simple-web-service:alpine 
+alpine: Pulling from devopsdockeruh/simple-web-service
+ba3557a56b15: Pull complete 
+1dace236434b: Pull complete 
+4f4fb700ef54: Pull complete 
+Digest: sha256:dd4d367476f86b7d7579d3379fe446ae5dfce25480903fb0966fc2e5257e0543
+Status: Downloaded newer image for devopsdockeruh/simple-web-service:alpine
+docker.io/devopsdockeruh/simple-web-service:alpine
+
+$ docker image ls devopsdockeruh/simple-web-service --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"
+REPOSITORY                          TAG       SIZE
+devopsdockeruh/simple-web-service   ubuntu    83MB
+devopsdockeruh/simple-web-service   alpine    15.7MB
+
+$ docker run -d -it devopsdockeruh/simple-web-service:alpine
+31159e5c6b3ac7eec99813faaf4e1b760b0ef51a4b343c26ef497ef58ce8db60
+
+$ docker exec -it $(docker ps -lq) sh
+/usr/src/app # tail -f ./text.log
+2023-04-21 09:22:03 +0000 UTC
+2023-04-21 09:22:05 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
