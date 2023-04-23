@@ -1,0 +1,42 @@
+# Create a Dockerfile for a new image that starts from ubuntu:20.04 and add instructions to install curl into that image.
+# Then add instructions to copy the script file into that image and finally set it to run on container start using CMD.
+# After you have filled the Dockerfile, build the image with the tag "curler".
+
+$ docker build . -t curler
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  3.072kB
+Step 1/6 : FROM ubuntu:20.04
+ ---> 88bd68917189
+Step 2/6 : WORKDIR /usr/src/app
+ ---> Using cache
+ ---> a6d5f4f87327
+Step 3/6 : RUN apt update && apt -y upgrade && apt -y install curl
+ ---> Using cache
+ ---> f9d11ed5764d
+Step 4/6 : COPY script.sh .
+ ---> Using cache
+ ---> 6841771514fa
+Step 5/6 : RUN chmod +x script.sh
+ ---> Using cache
+ ---> 72c3fca39e43
+Step 6/6 : CMD ./script.sh
+ ---> Using cache
+ ---> e0268c8042b4
+Successfully built e0268c8042b4
+Successfully tagged curler:latest
+
+$ docker run -it curler
+Input website:
+helsinki.fi
+Searching..
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.20.1</center>
+</body>
+</html>
+
