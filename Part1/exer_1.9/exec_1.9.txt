@@ -1,0 +1,15 @@
+# Image devopsdockeruh/simple-web-service creates a timestamp every two seconds to /usr/src/app/text.log when it's not given a command. Start the container with bind mount so that the logs are created into your filesystem.
+# Submit the command you used to complete the exercise.
+
+$ touch $(pwd)/text.log
+
+$ ls
+text.log
+
+$ docker run -d --name timestamp_logger -v "$(pwd)/text.log:/usr/src/app/text.log" devopsdockeruh/simple-web-service
+9c384aec2f16975877100ced95506ad99ce64dd4cd3473782bc991581cf50f4b
+
+$ cat text.log 
+2023-04-23 14:26:16 +0000 UTC
+2023-04-23 14:26:18 +0000 UTC
+2023-04-23 14:26:20 +0000 UTC
