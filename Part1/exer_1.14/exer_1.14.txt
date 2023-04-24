@@ -1,0 +1,63 @@
+# Start both frontend-example and backend-example with correct ports exposed and add ENV to Dockerfile with necessary information from both READMEs (front, back).
+# Ignore the backend configurations until frontend sends requests to _backend_url_/ping when you press the button.
+# You know that the configuration is ready when the button for 1.14 of frontend-example responds and turns green.
+# Do not alter the code of either project
+# Submit the edited Dockerfiles and commands used to run.
+
+# In terminal 1
+$ docker build -f frontend-example -t node-frontend; docker run -p 5000:5000 node-frontend
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+ INFO  Accepting connections at http://localhost:5000
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 GET /
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 Returned 304 in 7 ms
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 GET /static/css/main.eaa5d75e.chunk.css
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 GET /static/js/main.936a688e.chunk.js
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 GET /static/js/2.43ca3586.chunk.js
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 Returned 304 in 3 ms
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 Returned 304 in 2 ms
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 Returned 304 in 3 ms
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 GET /static/media/toskalogo.c0f35cf0.svg
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 Returned 304 in 1 ms
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 GET /favicon.ico
+ HTTP  4/24/2023 3:10:33 AM 172.17.0.1 Returned 200 in 1 ms
+^C
+ INFO  Gracefully shutting down. Please wait...
+
+
+# In terminal 2
+
+$ docker build -f backend-example -t go-backend; docker run -p 8080:8080 go-backend
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+[Ex 2.4+] REDIS_HOST env was not passed so redis connection is not initialized
+[Ex 2.6+] POSTGRES_HOST env was not passed so postgres connection is not initialized
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /ping                     --> server/router.pingpong (4 handlers)
+[GIN-debug] GET    /messages                 --> server/controller.GetMessages (4 handlers)
+[GIN-debug] POST   /messages                 --> server/controller.CreateMessage (4 handlers)
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2023/04/24 - 03:10:27 | 404 |      74.553µs |      172.17.0.1 | GET      "/"
+[GIN] 2023/04/24 - 03:10:35 | 200 |       25.71µs |      172.17.0.1 | GET      "/ping"
+^C

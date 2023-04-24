@@ -75,7 +75,8 @@ Removing intermediate container 62ef1928b771
  ---> 79ee4c971885
 Successfully built 79ee4c971885
 Successfully tagged go-backend:latest
-[anks@zen exer_1.13]$ docker run -p 8082:8080 go-backend
+
+$ docker run -p 8080:8080 go-backend
 [Ex 2.4+] REDIS_HOST env was not passed so redis connection is not initialized
 [Ex 2.6+] POSTGRES_HOST env was not passed so postgres connection is not initialized
 [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
@@ -92,5 +93,5 @@ Successfully tagged go-backend:latest
 ^C
 
 # In terminal 2
-$ curl http://localhost:8082/ping
+$ curl http://localhost:8080/ping
 pong

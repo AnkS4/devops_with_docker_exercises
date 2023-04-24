@@ -4,7 +4,7 @@
 $ docker build . -t node-frontend
 ...
 
-$ docker run -p 8081:5000 node-frontend
+$ docker run -p 5000:5000 node-frontend
  INFO  Accepting connections at http://localhost:5000
  HTTP  4/24/2023 1:17:10 AM 172.17.0.1 GET /
  HTTP  4/24/2023 1:17:10 AM 172.17.0.1 Returned 304 in 9 ms
