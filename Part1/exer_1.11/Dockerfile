@@ -1,7 +1,8 @@
 FROM openjdk:8
 EXPOSE 8080
 WORKDIR /usr/src/app
-COPY . .
+
+# COPY . .
 RUN git clone https://github.com/docker-hy/material-applications.git
 
 # /bin/sh: 1: material-applications/spring-example-project/.: Permission denied
