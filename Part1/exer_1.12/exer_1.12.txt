@@ -1,0 +1,21 @@
+# Clone, fork or download the project from https://github.com/docker-hy/material-applications/tree/main/example-frontend.
+# Create a Dockerfile for the project (example-frontend) and give a command so that the project runs in a Docker container with port 5000 exposed and published so when you start the container and navigate to http://localhost:5000 you will see message if you're successful.
+
+$ docker build . -t node-frontend
+...
+
+$ docker run -p 8081:5000 node-frontend
+ INFO  Accepting connections at http://localhost:5000
+ HTTP  4/24/2023 1:17:10 AM 172.17.0.1 GET /
+ HTTP  4/24/2023 1:17:10 AM 172.17.0.1 Returned 304 in 9 ms
+ HTTP  4/24/2023 1:17:10 AM 172.17.0.1 GET /static/css/main.eaa5d75e.chunk.css
+ HTTP  4/24/2023 1:17:10 AM 172.17.0.1 GET /static/js/2.43ca3586.chunk.js
+ HTTP  4/24/2023 1:17:10 AM 172.17.0.1 GET /static/js/main.1be634bd.chunk.js
+ HTTP  4/24/2023 1:17:10 AM 172.17.0.1 Returned 304 in 2 ms
+ HTTP  4/24/2023 1:17:10 AM 172.17.0.1 Returned 304 in 1 ms
+ HTTP  4/24/2023 1:17:10 AM 172.17.0.1 Returned 304 in 2 ms
+ HTTP  4/24/2023 1:17:11 AM 172.17.0.1 GET /static/media/toskalogo.c0f35cf0.svg
+ HTTP  4/24/2023 1:17:11 AM 172.17.0.1 Returned 304 in 1 ms
+^C
+ INFO  Gracefully shutting down. Please wait...
+
