@@ -1,0 +1,74 @@
+# It is time to wrap up this part and run a containerized app in the cloud.
+# You can take any web-app, eg. an example or exercise from this part, your own app, or even the course material (see devopsdockeruh/coursepage) and deploy it to some cloud provider.
+# Submit the Dockerfile, a brief description of what you did, and a link to the running app.
+
+# Setup account on fly.io
+
+# Install on local machine
+$ curl -L https://fly.io/install.sh | sh
+...
+
+# Manually add the directory to your $HOME/.bash_profile (or similar)
+# export FLYCTL_INSTALL="/home/anks/.fly"
+# export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+$ fly auth login
+...
+
+# Change current directory to Exercise 1.16
+
+# For Deployment via Dockerfile
+# $ fly launch
+# Creating app in /home/anks/repos/devops_with_docker_exercises/Part1/exer_1.16
+# Scanning source code
+# Detected a Dockerfile app
+# ? Choose an app name (leave blank to generate one): jisho
+# automatically selected personal organization: AnkS
+# Some regions require a paid plan (fra, maa).
+# See https://fly.io/plans to set up a plan.
+#
+# ? Choose a region for deployment: Amsterdam, Netherlands (ams)
+# App will use 'ams' region as primary
+# Created app 'jisho' in organization 'personal'
+# Admin URL: https://fly.io/apps/jisho
+# Hostname: jisho.fly.dev
+# ? Would you like to set up a Postgresql database now? No
+# ? Would you like to set up an Upstash Redis database now? No
+# Wrote config file fly.toml
+# ? Would you like to deploy now? Yes
+# Validating /home/anks/repos/devops_with_docker_exercises/Part1/exer_1.16/fly.toml
+# Platform: machines
+# ✓ Configuration is valid
+# ==> Building image
+# Remote builder fly-builder-polished-wildflower-3735 ready
+# ==> Creating build context
+# --> Creating build context done
+# ==> Building image with Docker
+# --> docker host: 20.10.12 linux x86_64
+# Sending build context to Docker daemon     227B
+# [+] Building 22.4s (7/7) FINISHED                                                                                               
+#  => [internal] load remote build context                                                                                   0.0s
+#  => copy /context /                                                                                                        0.1s
+#  => [internal] load metadata for docker.io/library/python:alpine3.17                                                       2.0s
+#  => [1/3] FROM docker.io/library/python:alpine3.17@sha256:507818d46649f8543e58d19a00e3a1a428bb7e87c0bf7f7d1ffe7b076cda11  10.6s
+# ...
+
+# For Deployment via Docker image
+# Ref.: https://fly.io/docs/hands-on/launch-app/
+# $ fly launch --image anks0/jisho
+
+# Deploy the course material
+# $ fly launch --image devopsdockeruh/coursepage
+
+# Deploy small static hellofly webpage
+$ fly launch --image flyio/hellofly:3
+...
+Finished launching new machines
+
+NOTE: The machines for [app] have services with 'auto_stop_machines = true' that will be stopped when idling
+
+Updating existing machines in 'test-hellofly' with rolling strategy
+  Finished deploying
+Visit your newly deployed app at https://test-hellofly.fly.dev
+
+

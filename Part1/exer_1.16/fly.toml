@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for test-hellofly on 2023-04-24T17:07:13+05:30
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "test-hellofly"
+primary_region = "ams"
+
+[build]
+  image = "flyio/hellofly:3"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+
+[checks]
+  [checks.alive]
+    type = "tcp"
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "5s"
