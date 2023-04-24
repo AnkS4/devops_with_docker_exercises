@@ -1,0 +1,17 @@
+# Create Dockerfile for an application or any other dockerised project in any of your own repositories and publish it to Docker Hub.
+# This can be any project, except the clones or forks of backend-example or frontend-example.
+# For this exercise to be complete you have to provide the link to the project in Docker Hub, make sure you at least have a basic description and instructions for how to run the application in a README that's available through your submission.
+
+$ nano Dockerfile
+
+$ docker build . -t jisho
+...
+
+$ docker login
+...
+
+$ docker tag jisho anks0/jisho
+
+$ docker push anks0/jisho 
+
+# Docker Hub Image Link: https://hub.docker.com/r/anks0/jisho
