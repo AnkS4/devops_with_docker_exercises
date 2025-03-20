@@ -12,7 +12,7 @@ hungry_lalande
 wonderful_ramanujan
 ```
 
-# Verify the container and image listings
+### Verify the container and image listings
 ```
 $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
