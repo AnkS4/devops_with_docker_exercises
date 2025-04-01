@@ -1,0 +1,26 @@
+### Use Node.js version 16 as the base image with npm package manager
+FROM node:16
+
+### Expose port 5000 (documentation only, doesn't actually publish the port)
+EXPOSE 5000
+
+### Set the working directory for all subsequent commands
+WORKDIR /usr/src/app
+
+### Copy all application files from host to container
+COPY . .
+
+### Install all dependencies defined in package.json
+RUN npm install
+
+### Build the application for production deployment
+RUN npm run build
+
+### Uncomment to verify Node.js and npm versions during build
+# RUN node -v && npm -v
+
+### Install 'serve' globally for serving the production-ready application
+RUN npm install -g serve
+
+### Start the server with SPA support on port 5000, serving the build directory
+CMD ["serve", "-s", "-l", "5000", "build"]
