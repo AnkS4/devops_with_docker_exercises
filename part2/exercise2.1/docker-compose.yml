@@ -1,0 +1,5 @@
+services:
+  web:
+    image: devopsdockeruh/simple-web-service:ubuntu
+    volumes:
+      - ./text.log:/usr/src/app/text.log
