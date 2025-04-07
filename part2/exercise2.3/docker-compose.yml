@@ -1,0 +1,10 @@
+services:
+  backend:
+    image: backend-project
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: frontend-project
+    ports:
+      - "5000:5000"
