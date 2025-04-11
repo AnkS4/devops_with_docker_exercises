@@ -4,7 +4,14 @@ services:
         ports:
             - "8080:8080"
         environment:
-            - REDIS_HOST=redis
+            REDIS_HOST: redis
+            POSTGRES_HOST: db
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DATABASE: postgres
+        depends_on:
+            - db
+            - redis
 
     frontend:
         image: frontend-project
