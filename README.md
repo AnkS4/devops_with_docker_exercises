@@ -59,11 +59,25 @@ Part 1 introduces essential Docker concepts through hands-on exercises aligned w
 
 ### Part 2
 
---
+Part 2 focuses on multi-container application management using Docker Compose. This section progresses from basic service definitions to complex orchestration scenarios.
+
+#### Key Learning Objectives
+- **Multi-Service Architecture**: Coordinate interconnected containers (web apps, databases, caching).
+- **Docker Compose Syntax**: Master docker-compose.yml structure for service definitions.
+- **Environment Management**: Configure shared networks, volumes, and environment variables across services.
+- **Dependency Handling**: Control startup order with depends_on and health checks.
+- **Production Patterns**: Implement restart policies and resource constraints.
+
+#### Exercise Highlights
+-
 
 ### Part 3
 
---
+#### Key Learning Objectives
+-
+
+#### Exercise Highlights
+-
 
 ## Getting Started
 
