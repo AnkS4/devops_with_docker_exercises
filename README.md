@@ -57,18 +57,20 @@ Part 1 introduces essential Docker concepts through hands-on exercises aligned w
 - **Cross-Container Communication**: Set up interconnected services (e.g., frontend-backend) with proper networking configurations (Exercises 1.12–1.14).
 - **Build and Publish Images**: Create your own Docker images and share them publicly via Docker Hub (Exercise 1.15).
 
-### Part 2
+### Part 2: Docker Compose & Orchestration Fundamentals  
 
-Part 2 focuses on multi-container application management using Docker Compose. This section progresses from basic service definitions to complex orchestration scenarios.
+Part 2 focuses on multi-container application management using Docker Compose, aligned with [course objectives](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker/chapter-3). Learners progress from basic service definitions to complex orchestration scenarios.
 
-#### Key Learning Objectives
+### Key Learning Objectives  
 - **Multi-Service Architecture**: Coordinate interconnected containers (web apps, databases, caching).
-- **Docker Compose Syntax**: Master docker-compose.yml structure for service definitions.
+- **Docker Compose Syntax**: Master `docker-compose.yml` structure for service definitions.
 - **Environment Management**: Configure shared networks, volumes, and environment variables across services.
-- **Dependency Handling**: Control startup order with depends_on and health checks.
+- **Dependency Handling**: Control startup order with `depends_on` and health checks.
 - **Production Patterns**: Implement restart policies and resource constraints.
 
-#### Exercise Highlights
+### Exercise Highlights  
+- **Exercises 2.1–2.3**: Define basic multi-service applications with Docker Compose.
+- **Exercises 2.4–2.6**: Integrate Redis/PostgreSQL with persistent volumes and scaling.
 -
 
 ### Part 3
