@@ -1,0 +1,33 @@
+services:
+    backend:
+        image: backend-project
+        ports:
+            - "8080:8080"
+        environment:
+            REDIS_HOST: redis
+            POSTGRES_HOST: db
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DATABASE: postgres
+        depends_on:
+            - db
+            - redis
+
+    frontend:
+        image: frontend-project
+        ports:
+            - "5000:5000"
+
+    redis:
+        image: redis:7.4.2-alpine
+
+    db:
+        image: postgres
+        restart: unless-stopped
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DATABASE: postgres
+            PGDATA: /var/lib/postgresql/data
+        volumes:
+            - ./database:/var/lib/postgresql/data
