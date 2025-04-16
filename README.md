@@ -107,7 +107,7 @@ cd devops_with_docker/part1/exercise1.1
 
 ## Recommended Learning Path
 1. Review [official course materials](https://devopswithdocker.com)
-2. Complete exercises sequentially (1.1 → 1.x)
+2. Complete exercises sequentially (1.1 → 1.2 → … → 1.x → 2.1 → 2.2 → … → 3.x)
 
 
 ## Prerequisites
@@ -121,8 +121,8 @@ To utilize this repository effectively:
 - A text editor (e.g., nano) for modifying Dockerfiles and scripts.
 
 
-## License  
+## License
 
-This repository is licensed under the **Creative Commons BY-NC-SA 4.0** license, the same as the original course materials from the University of Helsinki's *DevOps with Docker* course. For more details, see the [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+This repository is licensed under the **Creative Commons BY-NC-SA 4.0** license, the same as the original course materials from the University of Helsinki's *DevOps with Docker* course. For more details, see the [LICENSE](LICENSE) file in this repository or [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ---
